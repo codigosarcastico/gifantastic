@@ -1,0 +1,25 @@
+.Gif{
+    margin: 2rem;
+    padding: 10px;
+    border: 1px solid #fff;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #fff
+}
+
+.Gif h5{
+    margin: 10px 0;
+}
+
+.Gif img{
+    object-fit: contain;
+}
+
+a{
+    color: cadetblue;
+}
