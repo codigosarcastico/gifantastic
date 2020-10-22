@@ -1,13 +1,14 @@
 import React from 'react'
+import {Link} from 'wouter'
 import './Gif.css'
 
 const Gift = ({id,title,url}) =>{
 
     return (
-        <a href={`#${id}`} className='Gif'>
+        <Link to={`/gif/${id}`} className='Gif'>
           <h5>{title}</h5>
           <img src={url} alt={title}  />
-        </a>
+        </Link>
       )
 }
 

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Gift from "../components/Gift.jsx";
-import getGif from "../services/getGif";
+// import getGif from "../services/getGif";
+
+import { useGifs } from "../hooks/useGifs";
 
 const ListOfGift = ({ params }) => {
-  const [gifs, setGifs] = useState([]);
+  const { keyword } = params;
+  const { loading, gifs } = useGifs({ keyword });
+
+  /*const [gifs, setGifs] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const { keyword } = params;
 
   useEffect(() => { 
     (async () => {
@@ -15,17 +19,37 @@ const ListOfGift = ({ params }) => {
       setLoading(false);
     })();
     setLoading(true)
-  }, [keyword]);
- 
-   if(loading) return <i> Loading</i>
+  }, [keyword]);*/
+  
+  if(loading) return (
+    <div className="lds-ripple"><div></div><div></div></div>
+  )
 
   return (
     <>
-      {gifs.map(({ id, title, url }) => (
-        <Gift title={title} id={id} url={url} key={id} />
-      ))}
-    </>
+    {gifs.map(({ id, title, url }) => (
+      <Gift title={title} id={id} url={url} key={id} />
+    ))}
+  </>
   );
 };
 
 export default ListOfGift;
+
+/*
+
+       <>
+          
+          console.log(gifs)
+       
+       </>
+ 
+  gifs.map(item => (
+   gifs.map(({id, title, url}) => ( 
+      <Gift title={title} id={id} url={url} key={id} />
+   ))
+   <h1>Sergio</h1>
+ )) 
+  
+ 
+*/
